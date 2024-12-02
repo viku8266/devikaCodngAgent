@@ -10,7 +10,8 @@ class Ollama:
         try:
             self.client = ollama.Client(Config().get_ollama_api_endpoint())
             self.models = self.client.list()["models"]
-            log.info("Ollama available")
+            log.info("Ollama available models")
+            log.info(self.models)
         except:
             self.client = None
             log.warning("Ollama not available")
